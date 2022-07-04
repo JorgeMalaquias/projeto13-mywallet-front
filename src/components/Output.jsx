@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Link, useNavigate, } from 'react-router-dom';
 import TokenContext from '../contexts/TokenContext.js';
 import UserContext from '../contexts/UserContext.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 function sendData(e, price,name,setDisable, token, navigate){
@@ -19,7 +21,7 @@ function sendData(e, price,name,setDisable, token, navigate){
         name,
         type:'output'
     }
-    axios.post(`http://localhost:5000/records`,body,config).then((r)=>{
+    axios.post(`${process.env.API}/records`,body,config).then((r)=>{
         navigate('/general');
     }).catch((r)=>{
         setDisable(false);

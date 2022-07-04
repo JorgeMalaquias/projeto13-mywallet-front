@@ -1,7 +1,9 @@
 import { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate,  } from 'react-router-dom';
 import styled from 'styled-components';
+import dotenv from 'dotenv';
 import axios from 'axios';
+dotenv.config();
 
 function registering(e,name,setName,email,setEmail,password,setPassword,password2,setPassword2, navigate){
     e.preventDefault();
@@ -15,7 +17,8 @@ function registering(e,name,setName,email,setEmail,password,setPassword,password
             email,
             password
         }
-        axios.post(`http://localhost:5000/sign-up`,body).then((r)=>{
+        console.log(process.env.DEPLOY_API)
+        axios.post(`${process.env.DEPLOY_API}/sign-up`,body).then((r)=>{
 
             alert('Cadastro feito com sucesso. Para acessar sua conta faça o login');
             setName('');

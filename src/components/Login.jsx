@@ -14,7 +14,7 @@ function logging(e, email, setEmail, password, setPassword, setToken, navigate, 
         email,
         password
     }
-    axios.post(`http://localhost:5000/sign-in`, user).then((r) => {
+    axios.post(`${process.env.API}/sign-in`, user).then((r) => {
         setToken(r.data.token);
         setEmail('');
         setPassword('');

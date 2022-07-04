@@ -5,11 +5,13 @@ import styled from "styled-components";
 import UserContext from '../contexts/UserContext.js';
 import TokenContext from '../contexts/TokenContext.js';
 import RecordsContext from '../contexts/RecordsContext.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 function loggingOut(setUser, setToken, navigate, token) {
     setUser(undefined);
     setToken(undefined);
-    axios.delete(`http://localhost:5000/log-out/${token}`)
+    axios.delete(`${process.env.API}/log-out/${token}`)
     navigate('/');
 }
 function addingNewInput(navigate, setDisable, setDisable2) {
