@@ -17,8 +17,8 @@ function registering(e,name,setName,email,setEmail,password,setPassword,password
             email,
             password
         }
-        console.log(process.env.DEPLOY_API)
-        axios.post(`${process.env.DEPLOY_API}/sign-up`,body).then((r)=>{
+        console.log(process.env.API)
+        axios.post(`${process.env.API}/sign-up`,body).then((r)=>{
 
             alert('Cadastro feito com sucesso. Para acessar sua conta faça o login');
             setName('');
