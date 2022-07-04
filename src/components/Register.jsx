@@ -1,7 +1,7 @@
+import dotenv from 'dotenv';
 import { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate,  } from 'react-router-dom';
 import styled from 'styled-components';
-import dotenv from 'dotenv';
 import axios from 'axios';
 dotenv.config();
 
@@ -17,8 +17,7 @@ function registering(e,name,setName,email,setEmail,password,setPassword,password
             email,
             password
         }
-        console.log(process.env.API)
-        axios.post(`${process.env.API}/sign-up`,body).then((r)=>{
+        axios.post(`https://backendsdriven.herokuapp.com/sign-up`,body).then((r)=>{
 
             alert('Cadastro feito com sucesso. Para acessar sua conta faça o login');
             setName('');
@@ -37,6 +36,7 @@ export default function Register() {
     const [password,setPassword] = useState('');
     const [password2,setPassword2] = useState('');
     const navigate = useNavigate();
+    console.log(process.env.API)
     return (
         <LoginTag>
             <Title>My Wallet</Title>

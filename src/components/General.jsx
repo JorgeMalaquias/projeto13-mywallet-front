@@ -11,7 +11,7 @@ dotenv.config();
 function loggingOut(setUser, setToken, navigate, token) {
     setUser(undefined);
     setToken(undefined);
-    axios.delete(`${process.env.API}/log-out/${token}`)
+    axios.delete(`https://backendsdriven.herokuapp.com/log-out/${token}`)
     navigate('/');
 }
 function addingNewInput(navigate, setDisable, setDisable2) {
@@ -56,7 +56,7 @@ export default function General() {
         }
     }
     useEffect(() => {
-        axios.get(`http://localhost:5000/records`, config).then((r) => {
+        axios.get(`https://backendsdriven.herokuapp.com/records`, config).then((r) => {
             setRecords(r.data);
             let soma = 0;
             
