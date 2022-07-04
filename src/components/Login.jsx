@@ -21,7 +21,6 @@ function logging(e, email, setEmail, password, setPassword, setToken, navigate, 
         setUser(r.data.name)
         navigate('/general');
     }).catch((r) => {
-        console.log(r);
         alert("Dados inválidos");
     });
 }

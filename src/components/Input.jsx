@@ -20,14 +20,11 @@ function sendData(e,price,name,setDisable, token, navigate){
         name,
         type:'input'
     }
-    console.log(config)
     axios.post(`http://localhost:5000/records`,body,config).then((r)=>{
-        console.log(r);
         navigate('/general');
     }).catch((r)=>{
         setDisable(false);
-        console.log(r);
-        console.log('deu ruim');
+        alert('Alguns dos dados inseridos é inválido!');
     })
 }
 export default function Input() {

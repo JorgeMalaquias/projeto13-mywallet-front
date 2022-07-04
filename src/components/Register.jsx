@@ -16,7 +16,7 @@ function registering(e,name,setName,email,setEmail,password,setPassword,password
             password
         }
         axios.post(`http://localhost:5000/sign-up`,body).then((r)=>{
-            console.log(r);
+
             alert('Cadastro feito com sucesso. Para acessar sua conta faça o login');
             setName('');
             setEmail('');
@@ -24,7 +24,6 @@ function registering(e,name,setName,email,setEmail,password,setPassword,password
             setPassword2('');
             navigate('/');
         }).catch((r)=>{
-            console.log(r.response.data);
             alert('Dados inválidos!');
         })
     }
