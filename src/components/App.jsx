@@ -12,8 +12,8 @@ import RecordsContext from '../contexts/RecordsContext.js';
 import { useState } from 'react';
 
 export default function App() {
-    const [token, setToken] = ('');
-    const [user, setUser] = ('');
+    const [token, setToken] = useState('');
+    const [user, setUser] = useState('');
     const [records, setRecords] = useState([]);
     return (
         <TokenContext.Provider value={{ token, setToken }}>

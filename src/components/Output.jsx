@@ -6,11 +6,12 @@ import TokenContext from '../contexts/TokenContext.js';
 import UserContext from '../contexts/UserContext.js';
 
 
-function sendData(price,name,setDisable, token, navigate){
+function sendData(e, price,name,setDisable, token, navigate){
+    e.preventDefault();
     setDisable(true);
     const config = {
-        Headers: {
-            token: `Bearer ${token}`
+        headers: {
+            "Authorization": `Bearer ${token}`
         }
     }
     const body = {
@@ -18,10 +19,11 @@ function sendData(price,name,setDisable, token, navigate){
         name,
         type:'output'
     }
-    axios.post("URL",body,config).then((r)=>{
+    axios.post(`http://localhost:5000/records`,body,config).then((r)=>{
         console.log(r);
         navigate('/general');
     }).catch((r)=>{
+        setDisable(false);
         console.log(r);
         console.log('deu ruim');
     })
@@ -35,7 +37,7 @@ export default function Output() {
     return (
         <OutputTag>
             <div>Nova saída</div>
-            <FormTag onSubmit={()=>sendData(price,name,setDisable, token, navigate)}>
+            <FormTag onSubmit={(e)=>sendData(e,price,name,setDisable, token, navigate)}>
                 <input type="text" value={price} placeholder='Valor' required onChange={(e) => setPrice(e.target.value)} />
                 <input type="text" value={name} placeholder='Descrição' required onChange={(e) => setName(e.target.value)} />
                 <button disabled={disable} type='submit'>Salvar saída</button>

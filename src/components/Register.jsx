@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function registering(e,name,setName,email,setEmail,password,setPassword,password2,setPassword2, navigate){
     e.preventDefault();
-    if(password===password2){
+    if(!(password===password2)){
         alert('As senhas digitadas não são iguais!');
         setPassword('');
         setPassword2('');
@@ -15,7 +15,7 @@ function registering(e,name,setName,email,setEmail,password,setPassword,password
             email,
             password
         }
-        axios.post('URL',body).then((r)=>{
+        axios.post(`http://localhost:5000/sign-up`,body).then((r)=>{
             console.log(r);
             alert('Cadastro feito com sucesso. Para acessar sua conta faça o login');
             setName('');
@@ -24,7 +24,7 @@ function registering(e,name,setName,email,setEmail,password,setPassword,password
             setPassword2('');
             navigate('/');
         }).catch((r)=>{
-            console.log(r);
+            console.log(r.response.data);
             alert('Dados inválidos!');
         })
     }

@@ -45,14 +45,13 @@ export default function General() {
     const [disable,setDisable]= useState(false);
     const [disable2,setDisable2]= useState(false);
     const config = {
-        Headers: {
-            token: `Bearer ${token}`
+        headers: {
+            "Authorization": `Bearer ${token}`
         }
-
     }
     useEffect(() => {
-        axios.get('API', config).then((r) => {
-            setRecords(r);
+        axios.get(`http://localhost:5000/records`, config).then((r) => {
+            setRecords(r.data);
         }).catch((r) => {
             console.log(r);
         })

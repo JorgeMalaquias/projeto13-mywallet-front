@@ -4,6 +4,9 @@ import axios from 'axios';
 import { Link, useNavigate, } from 'react-router-dom';
 import TokenContext from '../contexts/TokenContext.js';
 import UserContext from '../contexts/UserContext.js';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 function logging(e, email, setEmail, password, setPassword, setToken, navigate, setUser) {
     e.preventDefault();
@@ -11,11 +14,11 @@ function logging(e, email, setEmail, password, setPassword, setToken, navigate, 
         email,
         password
     }
-    axios.post('URL', user).then((r) => {
-        setToken(r.token);
+    axios.post(`http://localhost:5000/sign-in`, user).then((r) => {
+        setToken(r.data.token);
         setEmail('');
         setPassword('');
-        setUser(r.name)
+        setUser(r.data.name)
         navigate('/general');
     }).catch((r) => {
         console.log(r);
