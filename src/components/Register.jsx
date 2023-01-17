@@ -17,7 +17,7 @@ function registering(e,name,setName,email,setEmail,password,setPassword,password
             email,
             password
         }
-        axios.post(`${process.env.REACT_APP_API}/sign-up`,body).then((r)=>{
+        axios.post(`https://my-wallet-api-a47v.onrender.com/sign-up`,body).then((r)=>{
 
             alert('Cadastro feito com sucesso. Para acessar sua conta faça o login');
             setName('');
