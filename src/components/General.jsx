@@ -10,7 +10,7 @@ import RecordsContext from '../contexts/RecordsContext.js';
 function loggingOut(setUser, setToken, navigate, token) {
     setUser(undefined);
     setToken(undefined);
-    axios.delete(`https://backendsdriven.herokuapp.com/log-out/${token}`)
+    axios.delete(`https://my-wallet-api-a47v.onrender.com/log-out/${token}`)
     navigate('/');
 }
 function addingNewInput(navigate, setDisable, setDisable2) {
