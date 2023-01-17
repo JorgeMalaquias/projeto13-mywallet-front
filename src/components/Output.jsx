@@ -4,8 +4,6 @@ import axios from 'axios';
 import { Link, useNavigate, } from 'react-router-dom';
 import TokenContext from '../contexts/TokenContext.js';
 import UserContext from '../contexts/UserContext.js';
-import dotenv from 'dotenv';
-dotenv.config();
 
 
 function sendData(e, price,name,setDisable, token, navigate){
