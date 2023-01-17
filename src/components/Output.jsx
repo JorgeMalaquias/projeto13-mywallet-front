@@ -19,7 +19,7 @@ function sendData(e, price,name,setDisable, token, navigate){
         name,
         type:'output'
     }
-    axios.post(`https://backendsdriven.herokuapp.com/records`,body,config).then((r)=>{
+    axios.post(`https://my-wallet-api-a47v.onrender.com/records`,body,config).then((r)=>{
         navigate('/general');
     }).catch((r)=>{
         setDisable(false);
