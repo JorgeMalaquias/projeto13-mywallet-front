@@ -55,7 +55,7 @@ export default function General() {
         }
     }
     useEffect(() => {
-        axios.get(`https://backendsdriven.herokuapp.com/records`, config).then((r) => {
+        axios.get(`https://my-wallet-api-a47v.onrender.com/records`, config).then((r) => {
             setRecords(r.data);
             let soma = 0;
             
