@@ -14,7 +14,7 @@ function logging(e, email, setEmail, password, setPassword, setToken, navigate, 
         email,
         password
     }
-    axios.post(`${process.env.REACT_APP_API}/sign-in`, user).then((r) => {
+    axios.post(`https://my-wallet-api-a47v.onrender.com/sign-in`, user).then((r) => {
         setToken(r.data.token);
         setEmail('');
         setPassword('');
