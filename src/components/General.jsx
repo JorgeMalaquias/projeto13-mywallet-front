@@ -5,8 +5,7 @@ import styled from "styled-components";
 import UserContext from '../contexts/UserContext.js';
 import TokenContext from '../contexts/TokenContext.js';
 import RecordsContext from '../contexts/RecordsContext.js';
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 function loggingOut(setUser, setToken, navigate, token) {
     setUser(undefined);
