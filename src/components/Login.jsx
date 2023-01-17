@@ -4,8 +4,7 @@ import axios from 'axios';
 import { Link, useNavigate, } from 'react-router-dom';
 import TokenContext from '../contexts/TokenContext.js';
 import UserContext from '../contexts/UserContext.js';
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 
 function logging(e, email, setEmail, password, setPassword, setToken, navigate, setUser) {
