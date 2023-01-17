@@ -2,8 +2,7 @@ import dotenv from 'dotenv';
 import { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate,  } from 'react-router-dom';
 import styled from 'styled-components';
-import axios from 'axios';
-dotenv.config();
+
 
 function registering(e,name,setName,email,setEmail,password,setPassword,password2,setPassword2, navigate){
     e.preventDefault();
