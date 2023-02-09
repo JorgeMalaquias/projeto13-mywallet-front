@@ -5,7 +5,7 @@ import styled from "styled-components";
 import UserContext from '../../contexts/UserContext.js';
 import TokenContext from '../../contexts/TokenContext.js';
 import RecordsContext from '../../contexts/RecordsContext.js';
-
+import * as Style from './style';
 
 function loggingOut(setUser, setToken, navigate, token) {
     const config = {
@@ -36,13 +36,13 @@ function addingNewOutput(navigate, setDisable2, setDisable) {
 function Record({ record }) {
     return (
         <>
-            <RecordTag type={record.type}>
+            <Style.RecordTag type={record.type}>
                 <div>
                     <div>{record.date}</div>
                     <div>{record.name}</div>
                 </div>
                 <div>{Number(record.price).toFixed(2)}</div>
-            </RecordTag>
+            </Style.RecordTag>
         </>
     );
 }
@@ -77,20 +77,20 @@ export default function General() {
         })
     }, []);
     return (
-        <GeneralTag>
-            <Top>
+        <Style.General>
+            <Style.Top>
                 <div>{`Olá, ${user}`}</div>
                 <ion-icon name="log-out-outline" onClick={() => loggingOut(setUser, setToken, navigate, token)}></ion-icon>
-            </Top>
-            <Records empty={(records.length === 0)}>
+            </Style.Top>
+            <Style.Records empty={(records.length === 0)}>
                 {records.length === 0 ? <div>Não há registros de
                     entrada ou saída</div> : records.map((r, i) => <Record record={r} key={i + 1} />)}
-                <Total show={!(records.length === 0)}>
+                <Style.Total show={!(records.length === 0)}>
                     <div>SALDO</div>
-                    <AmountDisplay negative={(amount<0)}>{amount}</AmountDisplay>
-                </Total>
-            </Records>
-            <Options>
+                    <Style.AmountDisplay negative={(amount<0)}>{amount}</Style.AmountDisplay>
+                </Style.Total>
+            </Style.Records>
+            <Style.Options>
                 <button disabled={disable} onClick={() => addingNewInput(navigate, setDisable, setDisable2)}>
                     <ion-icon name="add-circle-outline"></ion-icon>
                     <div>Nova
@@ -101,155 +101,9 @@ export default function General() {
                     <div>Nova
                         saída</div>
                 </button>
-            </Options>
-        </GeneralTag>
+            </Style.Options>
+        </Style.General>
     );
 }
 
-const GeneralTag = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-`
-const AmountDisplay = styled.div`
-    color: ${props=>props.negative?'#C70000':'#03AC00'};
-`
-const Total = styled.div`
-    display: ${props => props.show ? 'flex' : 'none'};
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
-    margin-bottom: 10px;
-    position: absolute;
-    bottom: 6px;
-    *{
-        font-family: 'Raleway', sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
-    }
-    > *:nth-child(1){
-        font-size: 17px;
-        font-weight: 700;
-        line-height: 20px;
-        letter-spacing: 0em;
-        text-align: left;
-        color:black;
-    }
-    > *:nth-child(2){
-        font-size: 17px;
-        font-weight: 400;
-        line-height: 20px;
-        letter-spacing: 0em;
-        text-align: right;
-    }
-`
-const Top = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 4px;
-    width: 328px;
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 31px;
-    letter-spacing: 0em;
-    text-align: left;
-    font-family: 'Raleway', sans-serif;
-    color:white;
-    ion-icon{
-        height: 30px;
-        width: 30px;
-    }
-`
-const Records = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: ${props => props.empty ? 'center' : 'flex-start'};
-    background-color: white;
-    color:#868686;
-    width: 326px;
-    height: 446px;
-    overflow-y: scroll;
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 23px;
-    border-radius: 5px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: #868686;
-    margin-bottom: 14px;
-    margin-top: 20px;
-    padding: 8px;
-    position: relative;
-`
-const RecordTag = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
-    margin-bottom: 10px;
-    *{
-        font-family: 'Raleway', sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    > *:nth-child(1) > *:nth-child(1){
-        color:#C6C6C6;
-        margin-right: 8px;
-    }
-    > *:nth-child(1) > *:nth-child(2){
-        color:#000000;
-        text-align: start;
-    }
-    > *:nth-child(2){
-        color:${props => props.type === 'input' ? '#03AC00' : '#C70000'};
-    }
-`
 
-
-const Options = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 326px;
-    > *{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        height: 114px;
-        width: 155px;
-        left: 25px;
-        top: 537px;
-        border-radius: 5px;
-        background-color: #A328D6;
-        color:white;
-        padding: 14px;
-        border: none;
-        ion-icon{
-        height: 30px;
-        width: 30px;
-        }
-        *{
-            font-family: 'Raleway', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            line-height: 20px;
-            letter-spacing: 0em;
-            text-align: left;
-
-        }
-    }
-`
