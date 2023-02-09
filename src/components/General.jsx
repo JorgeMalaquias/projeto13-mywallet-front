@@ -10,7 +10,7 @@ import RecordsContext from '../contexts/RecordsContext.js';
 function loggingOut(setUser, setToken, navigate, token) {
     setUser(undefined);
     setToken(undefined);
-    axios.delete(`https://my-wallet-api-a47v.onrender.com/log-out/${token}`)
+    axios.delete(`${process.env.REACT_APP_API}/log-out/${token}`)
     navigate('/');
 }
 function addingNewInput(navigate, setDisable, setDisable2) {
@@ -28,7 +28,7 @@ function addingNewOutput(navigate, setDisable2, setDisable) {
     }, 1000)
 }
 
-function Record({ record, key }) {
+function Record({ record }) {
     return (
         <>
             <RecordTag type={record.type}>

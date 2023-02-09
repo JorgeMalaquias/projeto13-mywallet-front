@@ -13,7 +13,7 @@ function logging(e, email, setEmail, password, setPassword, setToken, navigate, 
         email,
         password
     }
-    axios.post(`https://my-wallet-api-a47v.onrender.com/sign-in`, user).then((r) => {
+    axios.post(`${process.env.REACT_APP_API}/sign-in`, user).then((r) => {
         setToken(r.data.token);
         setEmail('');
         setPassword('');
@@ -30,6 +30,7 @@ export default function Login() {
     const { setToken } = useContext(TokenContext);
     const { setUser} = useContext(UserContext);
     const navigate = useNavigate();
+    console.log(process.env.REACT_APP_API)
     return (
         <LoginTag>
             <Title>My Wallet</Title>
