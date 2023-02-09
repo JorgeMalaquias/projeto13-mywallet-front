@@ -2,9 +2,9 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate, } from 'react-router-dom';
 import styled from "styled-components";
-import UserContext from '../contexts/UserContext.js';
-import TokenContext from '../contexts/TokenContext.js';
-import RecordsContext from '../contexts/RecordsContext.js';
+import UserContext from '../../contexts/UserContext.js';
+import TokenContext from '../../contexts/TokenContext.js';
+import RecordsContext from '../../contexts/RecordsContext.js';
 
 
 function loggingOut(setUser, setToken, navigate, token) {

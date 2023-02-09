@@ -1,14 +1,14 @@
-import Reset from '../theme/reset.js';
-import GlobalStyle from '../theme/globalstyle.js';
-import Login from './Login';
-import Register from './Register';
-import General from './General';
-import Input from './Input';
-import Output from './Output';
+import Reset from './theme/reset.js';
+import GlobalStyle from './theme/globalstyle.js';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
+import General from './components/general/General';
+import Input from './components/newInput/Input';
+import Output from './components/newOutput/Output';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import TokenContext from '../contexts/TokenContext.js';
-import UserContext from '../contexts/UserContext.js';
-import RecordsContext from '../contexts/RecordsContext.js';
+import TokenContext from './contexts/TokenContext.js';
+import UserContext from './contexts/UserContext.js';
+import RecordsContext from './contexts/RecordsContext.js';
 import { useState } from 'react';
 
 export default function App() {

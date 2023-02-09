@@ -2,11 +2,11 @@ import { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { Link, useNavigate, } from 'react-router-dom';
-import TokenContext from '../contexts/TokenContext.js';
-import UserContext from '../contexts/UserContext.js';
+import TokenContext from '../../contexts/TokenContext.js';
+import UserContext from '../../contexts/UserContext.js';
 
 
-function sendData(e, price,name,setDisable, token, navigate){
+function sendData(e,price,name,setDisable, token, navigate){
     e.preventDefault();
     setDisable(true);
     const config = {
@@ -17,7 +17,7 @@ function sendData(e, price,name,setDisable, token, navigate){
     const body = {
         price,
         name,
-        type:'output'
+        type:'input'
     }
     axios.post(`${process.env.REACT_APP_API}/records`,body,config).then((r)=>{
         navigate('/general');
@@ -26,33 +26,33 @@ function sendData(e, price,name,setDisable, token, navigate){
         alert('Alguns dos dados inseridos é inválido!');
     })
 }
-export default function Output() {
+export default function Input() {
     const [price, setPrice] = useState('');
     const [name, setName] = useState('');
     const [disable,setDisable]= useState(false);
     const {token} = useContext(TokenContext);
     const navigate = useNavigate();
     return (
-        <OutputTag>
-            <div>Nova saída</div>
+        <InputTag>
+            <div>Nova entrada</div>
             <FormTag onSubmit={(e)=>sendData(e,price,name,setDisable, token, navigate)}>
                 <input type="text" value={price} placeholder='Valor' required onChange={(e) => setPrice(e.target.value)} />
                 <input type="text" value={name} placeholder='Descrição' required onChange={(e) => setName(e.target.value)} />
-                <button disabled={disable} type='submit'>Salvar saída</button>
+                <button disabled={disable} type='submit'>Salvar entrada</button>
             </FormTag>
-        </OutputTag>
+        </InputTag>
     );
 }
 
-const OutputTag = styled.div`
+const InputTag = styled.div`
     font-family: 'Raleway', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     width: 326px;
-    padding-top: 10px;
     height: 100%;
+    padding-top: 10px;
     > *:nth-child(1){
         font-size: 26px;
         font-weight: 700;
@@ -75,6 +75,7 @@ const OutputTag = styled.div`
         line-height: 23px;
         letter-spacing: 0em;
         text-align: left;
+
     }
     button{
         height: 46px;
@@ -89,8 +90,8 @@ const OutputTag = styled.div`
         line-height: 23px;
         letter-spacing: 0em;
         border: none;
+
     }
-    
 `
 const FormTag = styled.form`
     display: flex;
