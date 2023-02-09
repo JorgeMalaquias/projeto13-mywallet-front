@@ -14,7 +14,7 @@ function logging(e, email, setEmail, password, setPassword, setToken, navigate, 
         password
     }
     axios.post(`${process.env.REACT_APP_API}/sign-in`, user).then((r) => {
-        setToken(r.data.token);
+        setToken(r.data);
         setEmail('');
         setPassword('');
         setUser(r.data.name)

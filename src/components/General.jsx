@@ -8,9 +8,14 @@ import RecordsContext from '../contexts/RecordsContext.js';
 
 
 function loggingOut(setUser, setToken, navigate, token) {
+    const config = {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
     setUser(undefined);
     setToken(undefined);
-    axios.delete(`${process.env.REACT_APP_API}/log-out/${token}`)
+    axios.delete(`${process.env.REACT_APP_API}/log-out`,config);
     navigate('/');
 }
 function addingNewInput(navigate, setDisable, setDisable2) {
@@ -55,7 +60,7 @@ export default function General() {
         }
     }
     useEffect(() => {
-        axios.get(`https://my-wallet-api-a47v.onrender.com/records`, config).then((r) => {
+        axios.get(`${process.env.REACT_APP_API}/records`, config).then((r) => {
             setRecords(r.data);
             let soma = 0;
             
