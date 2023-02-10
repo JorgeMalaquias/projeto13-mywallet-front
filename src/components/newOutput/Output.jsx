@@ -1,11 +1,9 @@
-import { useState, useContext, useEffect } from 'react';
-import styled from 'styled-components';
+import { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate, } from 'react-router-dom';
-import TokenContext from '../../contexts/TokenContext.js';
+import { useNavigate, } from 'react-router-dom';
 import * as Style from './style';
 
-function sendData(e, price,name,setDisable, token, navigate){
+function sendData(e, price, name, setDisable, token, navigate) {
     e.preventDefault();
     setDisable(true);
     const config = {
@@ -16,11 +14,11 @@ function sendData(e, price,name,setDisable, token, navigate){
     const body = {
         price,
         name,
-        type:'output'
+        type: 'output'
     }
-    axios.post(`${process.env.REACT_APP_API}/records`,body,config).then((r)=>{
+    axios.post(`${process.env.REACT_APP_API}/records`, body, config).then((r) => {
         navigate('/general');
-    }).catch((r)=>{
+    }).catch((r) => {
         setDisable(false);
         alert('Alguns dos dados inseridos é inválido!');
     })
@@ -28,13 +26,13 @@ function sendData(e, price,name,setDisable, token, navigate){
 export default function Output() {
     const [price, setPrice] = useState('');
     const [name, setName] = useState('');
-    const [disable,setDisable]= useState(false);
-    const {token} = useContext(TokenContext);
+    const [disable, setDisable] = useState(false);
+    const [token, setToken] = useState(window.localStorage.getItem("token"));
     const navigate = useNavigate();
     return (
         <Style.OutputTag>
             <div>Nova saída</div>
-            <Style.FormTag onSubmit={(e)=>sendData(e,price,name,setDisable, token, navigate)}>
+            <Style.FormTag onSubmit={(e) => sendData(e, price, name, setDisable, token, navigate)}>
                 <input type="text" value={price} placeholder='Valor' required onChange={(e) => setPrice(e.target.value)} />
                 <input type="text" value={name} placeholder='Descrição' required onChange={(e) => setName(e.target.value)} />
                 <button disabled={disable} type='submit'>Salvar saída</button>

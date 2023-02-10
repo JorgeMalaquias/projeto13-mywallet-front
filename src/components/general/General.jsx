@@ -47,7 +47,7 @@ function Record({ record }) {
     );
 }
 export default function General() {
-    const { user, setUser } = useContext(UserContext);
+    const [user, setUser] = useState(window.localStorage.getItem("name"));
     const { token, setToken } = useContext(TokenContext);
     const navigate = useNavigate();
     const { records, setRecords } = useContext(RecordsContext);
