@@ -15,7 +15,7 @@ function loggingOut(setUser, setToken, navigate, token) {
     }
     setUser(undefined);
     setToken(undefined);
-    axios.delete(`${process.env.REACT_APP_API}/log-out`,config);
+    axios.delete(`${process.env.REACT_APP_API}/log-out`, config);
     navigate('/');
 }
 function addingNewInput(navigate, setDisable, setDisable2) {
@@ -41,7 +41,7 @@ function Record({ record }) {
                     <div>{record.date}</div>
                     <div>{record.name}</div>
                 </div>
-                <div>{Number(record.price).toFixed(2)}</div>
+                <div>{Number(record.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</div>
             </Style.RecordTag>
         </>
     );
@@ -53,25 +53,26 @@ export default function General() {
     const { records, setRecords } = useContext(RecordsContext);
     const [disable, setDisable] = useState(false);
     const [disable2, setDisable2] = useState(false);
-    const [amount,setAmount] = useState(undefined);
-    const config = {
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
-    }
+    const [amount, setAmount] = useState(undefined);
+
     useEffect(() => {
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }
         axios.get(`${process.env.REACT_APP_API}/records`, config).then((r) => {
             setRecords(r.data);
-            let soma = 0;
-            
-            for(let i=0;i<r.data.length;i++){
-                if(r.data[i].type==='input'){
-                    soma+=Number(r.data[i].price);
-                }else{
-                    soma-=Number(r.data[i].price);
+            let sum = 0;
+
+            for (let i = 0; i < r.data.length; i++) {
+                if (r.data[i].type === 'input') {
+                    sum += Number(r.data[i].price);
+                } else {
+                    sum -= Number(r.data[i].price);
                 }
             }
-            setAmount(Number(soma).toFixed(2));
+            setAmount(Number(sum).toFixed(2));
         }).catch((r) => {
             alert('Erro inesperado ao carregar suas informações');
         })
@@ -87,7 +88,7 @@ export default function General() {
                     entrada ou saída</div> : records.map((r, i) => <Record record={r} key={i + 1} />)}
                 <Style.Total show={!(records.length === 0)}>
                     <div>SALDO</div>
-                    <Style.AmountDisplay negative={(amount<0)}>{amount}</Style.AmountDisplay>
+                    <Style.AmountDisplay negative={(amount < 0)}>{Number(amount).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Style.AmountDisplay>
                 </Style.Total>
             </Style.Records>
             <Style.Options>
