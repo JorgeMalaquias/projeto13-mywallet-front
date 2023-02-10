@@ -1,9 +1,6 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
-import { Link, useNavigate, } from 'react-router-dom';
-import styled from "styled-components";
-import UserContext from '../../contexts/UserContext.js';
-import TokenContext from '../../contexts/TokenContext.js';
+import { useNavigate, } from 'react-router-dom';
 import RecordsContext from '../../contexts/RecordsContext.js';
 import * as Style from './style';
 
@@ -48,7 +45,7 @@ function Record({ record }) {
 }
 export default function General() {
     const [user, setUser] = useState(window.localStorage.getItem("name"));
-    const { token, setToken } = useContext(TokenContext);
+    const [token, setToken] = useState(window.localStorage.getItem("token"));
     const navigate = useNavigate();
     const { records, setRecords } = useContext(RecordsContext);
     const [disable, setDisable] = useState(false);
@@ -66,11 +63,7 @@ export default function General() {
             let sum = 0;
 
             for (let i = 0; i < r.data.length; i++) {
-                if (r.data[i].type === 'input') {
-                    sum += Number(r.data[i].price);
-                } else {
-                    sum -= Number(r.data[i].price);
-                }
+                sum += Number(r.data[i].price);
             }
             setAmount(Number(sum).toFixed(2));
         }).catch((r) => {
