@@ -1,9 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
-import { Link, useNavigate, } from 'react-router-dom';
-import TokenContext from '../../contexts/TokenContext.js';
-import UserContext from '../../contexts/UserContext.js';
 
 export const Login = styled.div`
     display: flex;

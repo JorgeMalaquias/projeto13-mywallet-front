@@ -1,9 +1,6 @@
-import { useState, useContext, useEffect } from 'react';
-import styled from 'styled-components';
+import { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate, } from 'react-router-dom';
-import TokenContext from '../../contexts/TokenContext.js';
-import UserContext from '../../contexts/UserContext.js';
 import * as Style from './style';
 
 
