@@ -5,7 +5,7 @@ import { Link, useNavigate, } from 'react-router-dom';
 import TokenContext from '../../contexts/TokenContext.js';
 import UserContext from '../../contexts/UserContext.js';
 
-export const LoginTag = styled.div`
+export const Login = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,7 +26,7 @@ export const Title = styled.div`
     text-align: left;
     color:#FFFFFF;
 `
-export const FormTag = styled.form`
+export const Form = styled.form`
     width: 326px;
     height: 188px;
     margin: 36px 0;

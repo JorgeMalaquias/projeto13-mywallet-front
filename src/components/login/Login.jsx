@@ -24,23 +24,32 @@ function logging(e, email, setEmail, password, setPassword, setToken, navigate, 
     });
 }
 
-export default function Login() {
+function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { setToken } = useContext(TokenContext);
-    const { setUser} = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
     const navigate = useNavigate();
-    console.log(process.env.REACT_APP_API)
     return (
-        <Style.LoginTag>
+        <Style.Form onSubmit={(e) => logging(e, email, setEmail, password, setPassword, setToken, navigate, setUser)}>
+
+            <input value={email} type="text" placeholder='Email' required onChange={(e) => setEmail(e.target.value)} />
+
+            <input value={password} type="text" placeholder='Senha' required onChange={(e) => setPassword(e.target.value)} />
+
+            <button type='submit'>Entrar</button>
+
+        </Style.Form>
+    );
+}
+
+export default function Login() {
+    return (
+        <Style.Login>
             <Style.Title>My Wallet</Style.Title>
-            <Style.FormTag onSubmit={(e) => logging(e, email, setEmail, password, setPassword, setToken, navigate, setUser)}>
-                <input value={email} type="text" placeholder='Email' required onChange={(e) => setEmail(e.target.value)} />
-                <input value={password} type="text" placeholder='Senha' required onChange={(e) => setPassword(e.target.value)} />
-                <button type='submit'>Entrar</button>
-            </Style.FormTag>
+            <LoginForm />
             <div><Link to={'/register'}>Primeira vez? Cadastre-se!</Link></div>
-        </Style.LoginTag>
+        </Style.Login>
 
     );
 }
