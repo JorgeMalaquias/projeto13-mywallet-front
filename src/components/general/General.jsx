@@ -12,7 +12,11 @@ function loggingOut(setUser, setToken, navigate, token) {
     }
     setUser(undefined);
     setToken(undefined);
-    axios.delete(`${process.env.REACT_APP_API}/log-out`, config);
+    axios.delete(`${process.env.REACT_APP_API}/log-out`, config).then((r) => {
+        alert("Sessão encerrada");
+    }).catch((r) => {
+        alert(r.response.data);
+    });
     navigate('/');
 }
 function addingNewInput(navigate, setDisable, setDisable2) {

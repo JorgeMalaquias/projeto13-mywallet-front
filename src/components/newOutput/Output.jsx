@@ -20,7 +20,7 @@ function sendData(e, price, name, setDisable, token, navigate) {
         navigate('/general');
     }).catch((r) => {
         setDisable(false);
-        alert('Alguns dos dados inseridos é inválido!');
+        alert(r.response.data);
     })
 }
 export default function Output() {

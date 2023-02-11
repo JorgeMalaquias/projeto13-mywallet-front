@@ -17,7 +17,7 @@ function logging({ e, email, setEmail, password, setPassword, navigate }) {
         setPassword('');
         navigate('/general');
     }).catch((r) => {
-        alert("Dados inválidos");
+        alert(r.response.data);
     });
 }
 

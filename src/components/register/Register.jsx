@@ -25,7 +25,7 @@ function registering(e, name, setName, email, setEmail, password, setPassword, p
             setPassword2('');
             navigate('/');
         }).catch((r) => {
-            alert('Dados inválidos!');
+            alert(r.response.data);
         })
     }
 }
