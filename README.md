@@ -49,6 +49,11 @@ Após preencher as informações é clicar em "Salvar entrada" e se o registro f
 ![Tela Registro de Saídas](https://github.com/JorgeMalaquias/assets/blob/main/mywallet/tela%20saida.png)  
 Seu fluxo é exatamente o mesmo da tela de entradas, scom a única diferença de que realiza o registro de um saída.
 
+# Deploy
+
+Esta aplicação possui deploy no ar e pode ser acessada em: https://projeto13-mywallet-front-eta-rouge.vercel.app/  
+**obs**: o servidor desta aplicação não é muito rápido, portanto, em alguns momentos a aplicação pode demorar mais para responder do que seria o ideal.
+
 # Rodando aplicação localmente
 Pré-requisitos:
 - npm version 8
