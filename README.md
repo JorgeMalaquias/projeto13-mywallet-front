@@ -7,7 +7,28 @@ Consiste numa aplicação para controle financeiro de entradas e saídas de dinh
 - React JS
 - Javascript
 
-# Uso da aplicação(front-end)
+# Deploy
+
+Esta aplicação possui deploy no ar e pode ser acessada em: https://projeto13-mywallet-front-eta-rouge.vercel.app/  
+**obs**: o servidor desta aplicação não é muito rápido, portanto, em alguns momentos a aplicação pode demorar mais para responder do que seria o ideal.
+
+# Rodando aplicação localmente
+Pré-requisitos:
+- npm version 8
+
+1.Instale as dependências. Para isso, abra um terminal na pasta onde está o projeto, e rode o comando:
+```bash
+npm i
+```
+2.Linkar a aplicação com a api dela. Para isso, crie um arquivo ".env" na pasta do projeto, com a variável "API" recebendo o seguinte endereço: `https://my-wallet-api-a47v.onrender.com`. Este servidor "adormece" depois de u, tempo sem rebecer requisições, então pode demorar a responder num primeiro momento. O código desta api está disponível em [My Wallet API] e se você preferir, pode consumir esta API localmente em sua máquina. Para isso basta seguir as instruções de como rodar ela que estão na página de seu repositório no github. E no arquivo ".env" ao invés de informar o endereço anteriormente passado, basta informar localhost com  porta escolhida para rodar a api (ex: `http://localhost:5000/`).
+
+3.Finalmente, para rodar a aplicação, rode o comando:
+
+```bash
+npm start
+```
+
+# Fluxo da aplicação(front-end)
 
 ## Tela Cadastro
 ![Tela Cadastro](https://github.com/JorgeMalaquias/assets/blob/main/mywallet/tela%20cadastro(forms%20vazio).png)  
@@ -47,28 +68,7 @@ Após preencher as informações é clicar em "Salvar entrada" e se o registro f
 
 ## Tela Registro de Saídas
 ![Tela Registro de Saídas](https://github.com/JorgeMalaquias/assets/blob/main/mywallet/tela%20saida.png)  
-Seu fluxo é exatamente o mesmo da tela de entradas, scom a única diferença de que realiza o registro de um saída.
-
-# Deploy
-
-Esta aplicação possui deploy no ar e pode ser acessada em: https://projeto13-mywallet-front-eta-rouge.vercel.app/  
-**obs**: o servidor desta aplicação não é muito rápido, portanto, em alguns momentos a aplicação pode demorar mais para responder do que seria o ideal.
-
-# Rodando aplicação localmente
-Pré-requisitos:
-- npm version 8
-
-1.Instale as dependências. Para isso, abra um terminal na pasta onde está o projeto, e rode o comando:
-```bash
-npm i
-```
-2.Linkar a aplicação com a api dela. Para isso, crie um arquivo ".env" na pasta do projeto, com a variável "API" recebendo o seguinte endereço: `https://my-wallet-api-a47v.onrender.com`. Este servidor "adormece" depois de u, tempo sem rebecer requisições, então pode demorar a responder num primeiro momento. O código desta api está disponível em [My Wallet API] e se você preferir, pode consumir esta API localmente em sua máquina. Para isso basta seguir as instruções de como rodar ela que estão na página de seu repositório no github. E no arquivo ".env" ao invés de informar o endereço anteriormente passado, basta informar localhost com  porta escolhida para rodar a api (ex: `http://localhost:5000/`).
-
-3.Finalmente, para rodar a aplicação, rode o comando:
-
-```bash
-npm start
-```
+Seu fluxo é exatamente o mesmo da tela de entradas, scom a única diferença de que realiza o registro de um saída.  
 
 # Créditos
 
