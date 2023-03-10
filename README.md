@@ -62,9 +62,9 @@ Pré-requisitos:
 ```bash
 npm i
 ```
-2. Linkar a aplicação com a api dela. Para isso, crie um arquivo ".env" na pasta do projeto, com a variável "API" recebendo o seguinte endereço: `https://my-wallet-api-a47v.onrender.com`. Este servidor "adormece" depois de u, tempo sem rebecer requisições, então pode demorar a responder num primeiro momento. O código desta api está disponível em [My Wallet API] e se você preferir, pode consumir esta API localmente em sua máquina. Para isso basta seguir as instruções de como rodar ela que estão na página de seu repositório no github. E no arquivo ".env" ao invés de informar o endereço anteriormente passado, basta informar localhost com  porta escolhida para rodar a api (ex: `http://localhost:5000/`).
+2.Linkar a aplicação com a api dela. Para isso, crie um arquivo ".env" na pasta do projeto, com a variável "API" recebendo o seguinte endereço: `https://my-wallet-api-a47v.onrender.com`. Este servidor "adormece" depois de u, tempo sem rebecer requisições, então pode demorar a responder num primeiro momento. O código desta api está disponível em [My Wallet API] e se você preferir, pode consumir esta API localmente em sua máquina. Para isso basta seguir as instruções de como rodar ela que estão na página de seu repositório no github. E no arquivo ".env" ao invés de informar o endereço anteriormente passado, basta informar localhost com  porta escolhida para rodar a api (ex: `http://localhost:5000/`).
 
-4.Finalmente, para rodar a aplicação, rode o comando:
+3.Finalmente, para rodar a aplicação, rode o comando:
 
 ```bash
 npm start
