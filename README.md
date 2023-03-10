@@ -34,7 +34,7 @@ Se o login for feito com sucesso, o usuário será redirecionado para a tela ger
 ![Tela Geral 1 info](https://github.com/JorgeMalaquias/assets/blob/main/mywallet/tela%20geral%20com%201%20entrada.png)  
 Após 1 registro feito.  
 
-![Tela Geral 2 infos](https://github.com/JorgeMalaquias/assets/blob/main/mywallet/tela%20geral%20com%20duas%20infos.png) 
+![Tela Geral 2 infos](https://github.com/JorgeMalaquias/assets/blob/main/mywallet/tela%20geral%20com%20duas%20infos.png)  
 Após 2 registros feitos.  
 
 ## Tela Registro de Entradas
@@ -49,7 +49,7 @@ Após preencher as informações é clicar em "Salvar entrada" e se o registro f
 ![Tela Registro de Saídas](https://github.com/JorgeMalaquias/assets/blob/main/mywallet/tela%20saida.png)  
 Seu fluxo é exatamente o mesmo da tela de entradas, scom a única diferença de que realiza o registro de um saída.
 
-#Rodando aplicação localmente
+# Rodando aplicação localmente
 Pré-requisitos:
 - npm version 8
 
@@ -73,4 +73,4 @@ Linkedin: https://www.linkedin.com/in/jorgemalaquiasdev/
 
 Concepção da aplicação:
 - Driven Education  
-- Linkedin: https://www.linkedin.com/school/driven-education/
+Linkedin: https://www.linkedin.com/school/driven-education/
