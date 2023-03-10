@@ -28,7 +28,7 @@ npm i
 npm start
 ```
 
-# Fluxo da aplicação(front-end)
+# Fluxo da aplicação
 
 ## Tela Cadastro
 ![Tela Cadastro](https://github.com/JorgeMalaquias/assets/blob/main/mywallet/tela%20cadastro(forms%20vazio).png)  
