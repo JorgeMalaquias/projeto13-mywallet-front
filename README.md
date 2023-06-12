@@ -76,6 +76,6 @@ Desenvolvimento de código:
 - Jorge Jociel Olivera Malaquia  
 Linkedin: https://www.linkedin.com/in/jorgemalaquiasdev/
 
-Concepção da aplicação:
+Protótipo da aplicação:
 - Driven Education  
 Linkedin: https://www.linkedin.com/school/driven-education/
